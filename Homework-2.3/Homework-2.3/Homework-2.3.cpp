@@ -34,11 +34,14 @@ void counterSort(int array[], int length)
 	int length1 = max - min + 1;
 	int *arrayCount = new int[length1] {}; //fill 2-nd array
 	for (int i = 0; i < length; ++i)
+	{
 		arrayCount[array[i] - min]++;
+	}
 
 	for (int i = 0; i < length; ++i)
+	{
 		array[i] = 0;
-
+	}
 	int number = 0;
 	for (int i = 0; i < length1; ++i)
 	{
@@ -68,7 +71,9 @@ bool testing()
 	for (int i = 0; i < n; ++i)
 	{
 		if (array2[i] != arrayResult[i])
+		{
 			return false;
+		}
 	}
 
 	return true;
@@ -77,12 +82,15 @@ bool testing()
 int main()
 {
 	if (testing())
+	{
 		printf("%s\n", "Test is positive");
+	}
 	else
+	{
 		printf("%s\n", "Test is negative");
-	int n = 10;
-
-	int array[10]{ 1, 4, 2, 6, 3, 8, 6, 3, 2, 8 };
+	}
+	const int n = 10;
+	int array[n]{ 1, 4, 2, 6, 3, 8, 6, 3, 2, 8 };
 
 	bubbleSort(array, n);
 	for (int i = 0; i < n; ++i)
@@ -91,7 +99,7 @@ int main()
 	}
 
 	printf("\n");
-	int array1[10]{ 1, 4, 2, 6, 3, 8, 6, 3, 2, 8 };
+	int array1[n]{ 1, 4, 2, 6, 3, 8, 6, 3, 2, 8 };
 	counterSort(array, n);
 	for (int i = 0; i < n; ++i)
 	{
