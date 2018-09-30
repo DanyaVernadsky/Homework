@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Homework-2.3/.vs/Homework-2.3/v15
+/Homework-2.3/Debug
+/Homework-2.4
+/Homework-2.3/Homework-2.3/Debug/vc141.pdb
+/Homework-2.3/Homework-2.3/Debug/vc141.idb
+/Homework-2.3/Homework-2.3/Debug/Homework-2.3.tlog/link.write.1.tlog
+/Homework-2.3/Homework-2.3/Debug/Homework-2.3.tlog/link.read.1.tlog
+/Homework-2.3/Homework-2.3/Debug/Homework-2.3.tlog/link.command.1.tlog
+/Homework-2.3/Homework-2.3/Debug/Homework-2.3.tlog/Homework-2.3.lastbuildstate
+/Homework-2.3/Homework-2.3/Debug/Homework-2.3.tlog/CL.write.1.tlog
+/Homework-2.3/Homework-2.3/Debug/Homework-2.3.tlog/CL.read.1.tlog
+/Homework-2.3/Homework-2.3/Debug/Homework-2.3.tlog/CL.command.1.tlog
+/Homework-2.3/Homework-2.3/Debug/Homework-2.3.obj
+/Homework-2.3/Homework-2.3/Debug/Homework-2.3.log
+/Homework-2.3/Homework-2.3/Homework-2.3.vcxproj.user
+/Homework-2.3/Homework-2.3/Homework-2.3.vcxproj.filters
