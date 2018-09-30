@@ -76,7 +76,7 @@ int main()
 	{
 		printf("%i ", array[i]);
 	}
-	printf("%i\n");
+	printf("\n");
 
 	printf("%s\n", "Output sort array");
 	algoritm(array, n);
