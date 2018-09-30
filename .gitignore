@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Homework-3.1
+/Homework-2.4
+/Homework-2.3
+/Homework-2.2/.vs/Homework-2.2/v15/ipch/AutoPCH
+/Homework-2.2/.vs/Homework-2.2/v15
+/Homework-2.2/Debug
+/Homework-2.2/Homework-2.2/Debug/Homework-2.2.tlog
+/Homework-2.2/Homework-2.2/Debug
+/Homework-2.2/Homework-2.2
