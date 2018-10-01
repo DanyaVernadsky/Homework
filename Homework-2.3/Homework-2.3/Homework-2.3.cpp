@@ -95,6 +95,7 @@ int main()
 	else
 	{
 		printf("%s\n", "Test is negative");
+		return 0;
 	}
 	const int n = 10;
 	int array[n]{ 1, 4, 2, 6, 3, 8, 6, 3, 2, 8 };
