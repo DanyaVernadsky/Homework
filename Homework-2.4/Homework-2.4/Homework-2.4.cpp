@@ -7,15 +7,16 @@ void randomArray(int array[], int length)
 {
 	for (int i = 0; i < length; ++i)
 	{
-		array[i] = rand();
+		array[i] = rand() % 100;
 	}
 }
 
 void algoritm(int array[], int length)
 {
-	if (length != 1) {
+	if (length != 1) 
+	{
 
-		int example = array[0];
+		int const example = array[0];
 		int i = 1;
 		int j = length - 1;
 		while (i <= j)
@@ -30,9 +31,9 @@ void algoritm(int array[], int length)
 			}
 			if (i <= j)
 			{
-				int zz = array[i];
+				int const pattern = array[i];
 				array[i] = array[j];
-				array[j] = zz;
+				array[j] = pattern;
 				i++;
 				j--;
 			}
@@ -49,16 +50,15 @@ bool testing()
 	for (int i = 0; i < n; ++i)
 	{
 		if (array[i] != result[i])
+		{
 			return false;
+		}
 	}
 
 	int array1[1]{ 5 };
 	int result1[1]{ 5 };
 	algoritm(array1, 1);
-	if (array[0] != result[0])
-		return false;
-
-	return true;
+	return (array[0] == result[0])
 }
 
 int main()
@@ -66,9 +66,13 @@ int main()
 	const int n = 10;
 	int array[n]{4, 5, 3, 2, 7, 8, 2, 1, 0, 4};
 	if (testing())
+	{
 		printf("%s\n", "Testing is positive! :)");
+	}
 	else
+	{
 		printf("%s\n", "Testing is negative! :(");
+	}
 	randomArray(array, n);
 
 	printf("%s\n", "Output random array");
