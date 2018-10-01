@@ -11,7 +11,7 @@ void bubbleSort(int array[], int length)
 		{
 			if (array[j] > array[j + 1])
 			{
-				int c = array[j];
+				int const c = array[j];
 				array[j] = array[j + 1];
 				array[j + 1] = c;
 			}
@@ -26,9 +26,13 @@ void counterSort(int array[], int length)
 	for (int i = 1; i < length; ++i) // search max
 	{
 		if (array[i] > max)
+		{
 			max = array[i];
+		}
 		if (array[i] < min)
+		{
 			min = array[i];
+		}
 	}
 
 	int length1 = max - min + 1;
@@ -52,6 +56,7 @@ void counterSort(int array[], int length)
 			number++;
 		}
 	}
+	delete []arrayCount;
 }
 
 bool testing()
@@ -64,7 +69,9 @@ bool testing()
 	for (int i = 0; i < n; ++i)
 	{
 		if (array1[i] != arrayResult[i])
+		{
 			return false;
+		}
 	}
 
 	counterSort(array2, n);
@@ -107,6 +114,5 @@ int main()
 	}
 
 	scanf("%i", &n);
-	delete[]array;
 	return 0;
 }
