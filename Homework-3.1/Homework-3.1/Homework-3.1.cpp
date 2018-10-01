@@ -7,7 +7,7 @@ void insertSort(int array[], int left, int right)
 	for (int i = left; i < right; ++i)
 	{
 		int key = i + 1;
-		int templ = array[key];
+		int const templ = array[key];
 		for (int j = i + 1; j > 0; --j)
 		{
 			if (templ < array[j - 1])
@@ -24,7 +24,6 @@ void quickSort(int array[], int left, int right)
 {
 	int i = left; 
 	int j = right;
-	int templ;
 	int pivot = array[(left + right) / 2];
 	while (i <= j) 
 	{
@@ -34,7 +33,7 @@ void quickSort(int array[], int left, int right)
 			j--;
 		if (i <= j) 
 		{
-			templ = array[i]; 
+			int const templ = array[i];
 			array[i] = array[j];
 			array[j] = templ;
 			i++;
@@ -76,13 +75,17 @@ bool testing()
 	for (int i = 0; i < n; ++i)
 	{
 		if (array[i] != result[i])
+		{
 			return false;
+		}
 	}
 	insertSort(array1, 0, n - 1);
 	for (int i = 0; i < n; ++i)
 	{
 		if (array1[i] != result[i])
+		{
 			return false;
+		}
 	}
 	return true;
 }
