@@ -20,28 +20,12 @@ void insertSort(int array[], int left, int right)
 	}
 }
 
-void quickSort(int array[], int left, int right) 
+void quickSort(int array[], int left, int right)
 {
-	int i = left; 
+	int i = left;
 	int j = right;
-	int pivot = array[(left + right) / 2];
-	while (i <= j) 
-	{
-		while (array[i] < pivot)
-			i++;
-		while (array[j] > pivot)
-			j--;
-		if (i <= j) 
-		{
-			int const templ = array[i];
-			array[i] = array[j];
-			array[j] = templ;
-			i++;
-			j--;
-		}
-	};
-	
-	if (left < j) 
+
+	if (left < j)
 	{
 		if (left - j >= 10)
 		{
@@ -53,7 +37,8 @@ void quickSort(int array[], int left, int right)
 		}
 	}
 
-	if (i < right) {
+	if (i < right) 
+	{
 		if (i - right >= 10)
 		{
 			quickSort(array, i, right);
@@ -61,6 +46,28 @@ void quickSort(int array[], int left, int right)
 		else
 		{
 			insertSort(array, i, right);
+		}
+	}
+
+
+	int pivot = array[(left + right) / 2];
+	while (i <= j)
+	{
+		while (array[i] < pivot)
+		{
+			i++;
+		}
+		while (array[j] > pivot)
+		{
+			j--;
+		}
+		if (i <= j)
+		{
+			int const templ = array[i];
+			array[i] = array[j];
+			array[j] = templ;
+			i++;
+			j--;
 		}
 	}
 }
@@ -94,9 +101,13 @@ bool testing()
 int main()
 {
 	if (testing())
+	{
 		printf("%s\n", "Testing is positive");
+	}
 	else
+	{
 		printf("%s\n", "Testing is negative");
+	}
 	printf("%s", "Enter length of array: ");
 	int n = 0;
 	scanf("%i", &n);
@@ -112,7 +123,7 @@ int main()
 	{
 		printf("%i ", array[i]);
 	}
-
+	delete []array;
 	scanf("%i", &n);
 	return 0;
 }
