@@ -24,33 +24,7 @@ void quickSort(int array[], int left, int right)
 {
 	int i = left;
 	int j = right;
-
-	if (left < j)
-	{
-		if (left - j >= 10)
-		{
-			quickSort(array, left, j);
-		}
-		else
-		{
-			insertSort(array, left, j);
-		}
-	}
-
-	if (i < right) 
-	{
-		if (i - right >= 10)
-		{
-			quickSort(array, i, right);
-		}
-		else
-		{
-			insertSort(array, i, right);
-		}
-	}
-
-
-	int pivot = array[(left + right) / 2];
+	int pivot = array[(i + j) / 2];
 	while (i <= j)
 	{
 		while (array[i] < pivot)
@@ -69,34 +43,86 @@ void quickSort(int array[], int left, int right)
 			i++;
 			j--;
 		}
+		if (left < j)
+		{
+			quickSort(array, left, j);
+		}
+		if (right > i)
+		{
+			quickSort(array, right, i);
+		}
 	}
+}
+
+bool checkArrays(int array1[], int result1[], int length)
+{
+	for (int i = 0; i < length; ++i)
+	{
+		printf("%i%s%i", array1[i], " and ", result1[i]);
+		printf("\n");
+		if (array1[i] != result1[i])
+		{
+			printf("%i", i, "- Number of error!!");
+			/*return false;*/
+		}
+	}
+	return true;
 }
 
 bool testing()
 {
 	const int n = 10;
 	int array[n]{ 1, 5, 3, -2, 4, 1, 0, 4, 5, 7 };
-	int array1[n]{ 1, 5, 3, -2, 4, 1, 0, 4, 5, 7 };
 	int result[n]{-2, 0, 1, 1, 3, 4, 4, 5, 5, 7};
-	quickSort(array, 0, n - 1);
-	for (int i = 0; i < n; ++i)
+
+	/*quickSort(array, 0, n - 1);
+	if (!checkArrays(array, result, n))
 	{
-		if (array[i] != result[i])
-		{
-			return false;
-		}
-	}
-	insertSort(array1, 0, n - 1);
-	for (int i = 0; i < n; ++i)
+		return false;
+	}*/
+
+	const int m = 20;
+	int array20[m]{ 1, 5, 3, -2, 4, 1, 0, 4, 5, 7, 11, 233,
+		11, 31, 3, 6, 4, 13, 15, 20 };
+	int result20[m]{ -2, 0, 1, 1, 3, 3, 4, 4, 4, 5, 5, 6, 7,
+		11, 11, 13, 15, 20, 31, 233 };
+
+	quickSort(array20, 0, m - 1);
+	if (!checkArrays(array20, result20, m))
 	{
-		if (array1[i] != result[i])
-		{
-			return false;
-		}
+		return false;
 	}
+
+	/*int array01[1]{5};
+
+	quickSort(array01, 0, 4);
+	if (!checkArrays(array01, array01, 5))
+	{
+		return false;
+	}
+
+	const int q = 2;
+	int array02[q]{ 7, 2 };
+	int array02_result[q]{ 2, 7 };
+	
+	quickSort(array02, 0, q - 1);
+	if (!checkArrays(array02, array02_result, q))
+	{
+		return false;
+	}
+
+	const int p = 7;
+	int array03[p]{ 7, 7, 7, 7, 7, 7, 7 };
+	int array03_result[p]{ 7, 7, 7, 7, 7, 7, 7 };
+
+	quickSort(array03, 0, p - 1);
+	if (!checkArrays(array03, array03_result, p))
+	{
+		return false;
+	}
+*/
 	return true;
 }
-
 
 int main()
 {
