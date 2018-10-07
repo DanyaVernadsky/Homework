@@ -22,9 +22,10 @@ void insertSort(int array[], int left, int right)
 
 void quickSort(int array[], int left, int right)
 {
+	
 	int i = left;
 	int j = right;
-	int pivot = array[(i + j) / 2];
+	int pivot = array[(left + right) / 2];
 	while (i <= j)
 	{
 		while (array[i] < pivot)
@@ -49,7 +50,7 @@ void quickSort(int array[], int left, int right)
 		}
 		if (right > i)
 		{
-			quickSort(array, right, i);
+			quickSort(array, i, right);
 		}
 	}
 }
@@ -58,12 +59,9 @@ bool checkArrays(int array1[], int result1[], int length)
 {
 	for (int i = 0; i < length; ++i)
 	{
-		printf("%i%s%i", array1[i], " and ", result1[i]);
-		printf("\n");
 		if (array1[i] != result1[i])
 		{
-			printf("%i", i, "- Number of error!!");
-			/*return false;*/
+			return false;
 		}
 	}
 	return true;
@@ -75,25 +73,25 @@ bool testing()
 	int array[n]{ 1, 5, 3, -2, 4, 1, 0, 4, 5, 7 };
 	int result[n]{-2, 0, 1, 1, 3, 4, 4, 5, 5, 7};
 
-	/*quickSort(array, 0, n - 1);
+	quickSort(array, 0, n - 1);
 	if (!checkArrays(array, result, n))
 	{
 		return false;
-	}*/
+	}
 
 	const int m = 20;
 	int array20[m]{ 1, 5, 3, -2, 4, 1, 0, 4, 5, 7, 11, 233,
 		11, 31, 3, 6, 4, 13, 15, 20 };
 	int result20[m]{ -2, 0, 1, 1, 3, 3, 4, 4, 4, 5, 5, 6, 7,
 		11, 11, 13, 15, 20, 31, 233 };
-
 	quickSort(array20, 0, m - 1);
+
 	if (!checkArrays(array20, result20, m))
 	{
 		return false;
 	}
 
-	/*int array01[1]{5};
+	int array01[1]{5};
 
 	quickSort(array01, 0, 4);
 	if (!checkArrays(array01, array01, 5))
@@ -120,7 +118,7 @@ bool testing()
 	{
 		return false;
 	}
-*/
+
 	return true;
 }
 
