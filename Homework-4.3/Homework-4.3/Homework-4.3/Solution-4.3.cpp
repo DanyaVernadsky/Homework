@@ -67,36 +67,33 @@ void printAll()
 void menu()
 {
 	int decision = 1;
-	while (decision)
+	while (decision != 0)
 	{
-		printf("%s", "¬ведите номер: \n");
+		printf("%s", "¬ведите номер:");
 		scanf("%i", &decision);
 		switch (decision) {
 		case 0:
-
+			decision = 0;
 			break;
 		case 1:
 			addInfo();
-			decision = 9;
 			break;
 		case 2:
 			printAll();
-			decision = 9;
 			break;
 		case 3:
 			printf("%s", "¬ведите им€: ");
 			char name[50];
 			scanf("%s", name);
 			searchName(name);
-			decision = 9;
 			break;
 		case 4:
 
-			decision = 9;
 			break;
 		default :
 			break;
 		}
+		scanf("%i", &decision);
 	}
 }
 
