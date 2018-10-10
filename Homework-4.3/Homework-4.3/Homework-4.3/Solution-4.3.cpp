@@ -10,26 +10,27 @@ struct library
 	char name[30];
 } person[quantity];
 
-void addInfo()
+void addInfo(int &countAccount)
 {
 	printf("%s", "Введите кол-во записей: \n");
 	int k = 0;
-	scanf("%i", &k);
-	for (int i = 0; i < k; ++i) {
-		printf("%s", "Введите номер: \n");
-		scanf("%i", &person[k].number);
+	scanf("%i", &k);	
+	for (int i = countAccount; i < k + countAccount; ++i) {
+		printf("%s", "Введите номер телефона владельца: \n");
+		scanf("%i", &person[i].number);
 		printf("%s", "Введите Имя: \n");
-		scanf("%i", &person[k].name);
+		scanf("%s", &person[i].name);
 	}
+	countAccount += k;
 }
 
-void searchName(char name[])
+void searchName(char name[], int &countAccount)
 {
-	for (int i = 0; i < quantity; ++i) 
+	for (int i = 0; i < countAccount; ++i)
 	{
 		if (strcmp(name, person[i].name) == 0) 
 		{
-			printf("%s\n", person[i].name);
+			printf("%s\n", person[i].number);
 		}
 		else
 		{
@@ -38,9 +39,9 @@ void searchName(char name[])
 	}
 }
 
-void searchNumber(__int64 number)
+void searchNumber(__int64 number, int &countAccount)
 {
-	for (int i = 0; i < quantity; ++i) 
+	for (int i = 0; i < countAccount; ++i) 
 	{
 		if (person[i].number == number) 
 		{
@@ -53,39 +54,41 @@ void searchNumber(__int64 number)
 	}
 }
 
-void printAll()
+void printAll(int countAccount)
 {
 	printf("%s", "Имя    ");
-	printf("%s%s", "Номер\n");
-	for (int i = 0; i < quantity; ++i)
+	printf("%s", "Номер\n");
+	for (int i = 0; i < countAccount; ++i)
 	{
-		printf("%s", "person[i].name  ");
-		printf("%__int64", person[i].number, "\n");
+		printf("%s%s", person[i].name, "   ");
+		printf("%u", person[i].number);
+		printf("\n");
 	}
 }
 
 void menu()
 {
 	int decision = 1;
+	int countAccount = 0;
 	while (decision != 0)
 	{
-		printf("%s", "Введите номер:");
+		printf("%s", "Введите операцию:");
 		scanf("%i", &decision);
 		switch (decision) {
 		case 0:
 			decision = 0;
 			break;
 		case 1:
-			addInfo();
+			addInfo(countAccount);
 			break;
 		case 2:
-			printAll();
+			printAll(countAccount);
 			break;
 		case 3:
 			printf("%s", "Введите имя: ");
 			char name[50];
 			scanf("%s", name);
-			searchName(name);
+			searchName(name, countAccount);
 			break;
 		case 4:
 
@@ -93,7 +96,6 @@ void menu()
 		default :
 			break;
 		}
-		scanf("%i", &decision);
 	}
 }
 
@@ -104,9 +106,8 @@ int main()
 	printf("%s", "Выберите требуемое действие : \n0 - Выйти ...\n1 - Добавить запись (имя и телефон) ...\n");
 	printf("%s", "2 - Распечатать все имеющиеся записи ...\n3 - Найти телефон по имени ...\n");
 	printf("%s", "4 - Найти имя по телефону ...\n5 - Сохранить текущие данные в файл  ...\n");
-	
+	int countAccount = 0;
 	menu();
-
 	printf("%s", "Конец!");
 	int m = 0;
 	scanf("%i", &m);
