@@ -45,7 +45,7 @@ void searchNumber(__int64 number, int &countAccount)
 	{
 		if (person[i].number == number) 
 		{
-			printf("%i\n", person[i].number);
+			printf("%u", person[i].number);
 		}
 		else
 		{
@@ -86,12 +86,15 @@ void menu()
 			break;
 		case 3:
 			printf("%s", "¬ведите им€: ");
-			char name[50];
+			char name[30];
 			scanf("%s", name);
 			searchName(name, countAccount);
 			break;
 		case 4:
-
+			printf("%s", "¬ведите номер абонента: ");
+			__int64 number = 0;
+			scanf("%u", number);
+			searchNumber(number, countAccount);
 			break;
 		default :
 			break;
