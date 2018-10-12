@@ -54,20 +54,28 @@ void searchNumber(__int64 number, int &countAccount)
 	}
 }
 
-void printAll(int countAccount)
+void printAll(FILE *myfile)
 {
 	printf("%s", "Имя    ");
 	printf("%s", "Номер\n");
-	for (int i = 0; i < countAccount; ++i)
+	int i = 0;
+	while (fscanf(myfile, "%s%u", (person[i].name), &(person[i].number)) != EOF) 
 	{
-		printf("%s%s", person[i].name, "   ");
-		printf("%u", person[i].number);
-		printf("\n");
+		printf("%s %u", person[i].name, person[i].number);
+		i++;
 	}
+
+}
+
+void saveData()
+{
+
 }
 
 void menu()
 {
+	FILE *myfile;
+	myfile = fopen("directory.txt", "a+");
 	int decision = 1;
 	int countAccount = 0;
 	while (decision != 0)
@@ -79,27 +87,41 @@ void menu()
 			decision = 0;
 			break;
 		case 1:
+		{
 			addInfo(countAccount);
 			break;
+		}
 		case 2:
-			printAll(countAccount);
+		{
+			printAll(myfile);
 			break;
+		}
 		case 3:
+		{
 			printf("%s", "Введите имя: ");
 			char name[30];
-			scanf("%s", name);
+			scanf("%s", &name);
 			searchName(name, countAccount);
 			break;
+		}
 		case 4:
+		{
 			printf("%s", "Введите номер абонента: ");
 			__int64 number = 0;
-			scanf("%u", number);
+			scanf("%u", &number);
 			searchNumber(number, countAccount);
 			break;
+		}
+		case 5:
+		{
+			saveData();
+			break;
+		}
 		default :
 			break;
 		}
 	}
+	fclose(myfile);
 }
 
 
@@ -109,6 +131,7 @@ int main()
 	printf("%s", "Выберите требуемое действие : \n0 - Выйти ...\n1 - Добавить запись (имя и телефон) ...\n");
 	printf("%s", "2 - Распечатать все имеющиеся записи ...\n3 - Найти телефон по имени ...\n");
 	printf("%s", "4 - Найти имя по телефону ...\n5 - Сохранить текущие данные в файл  ...\n");
+
 	int countAccount = 0;
 	menu();
 	printf("%s", "Конец!");
