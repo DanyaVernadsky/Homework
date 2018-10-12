@@ -93,7 +93,7 @@ bool testing()
 
 	int array01[1]{5};
 
-	quickSort(array01, 0, 4);
+	quickSort(array01, 0, 0);
 	if (!checkArrays(array01, array01, 5))
 	{
 		return false;
