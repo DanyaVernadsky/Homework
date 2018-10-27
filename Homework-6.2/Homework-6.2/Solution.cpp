@@ -1,10 +1,8 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stack>
 #include <string>
 #include <iostream>
 using namespace std;
-
 
 bool check(string line)
 {
@@ -54,7 +52,7 @@ bool check(string line)
 			break;
 		}
 	}
-	if (stack.size != 0)
+	if (stack.size() != 0)
 	{
 		return false;
 	}
