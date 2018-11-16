@@ -143,7 +143,10 @@
 					tree::node* q = p->left;
 					tree::node* r = p->right;
 					delete p;
-					if (!r) return q;
+					if (!r)
+					{
+						return q;
+					}
 					tree::node* min = findmin(r);
 					min->right = removemin(r);
 					min->left = q;

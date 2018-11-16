@@ -13,31 +13,77 @@ int main()
 	cout << "3 - check element in AVL tree" << endl;
 	cout << "4 - find data of element in AVL tree throw key" << endl;
 
-	node* p;
-	int reaction = -1;
-	cin >> reaction;
-	while (reaction != 0)
+	node* p = NULL;
+	int reaction = -2;
+	
+	while (reaction != -1)
 	{
+		cout << "Enter command ";
+		cin >> reaction;
 		switch (reaction)
 		{
-		case '0':
+		case 0:
+		{
 			reaction = -1;
+			cout << "Goodbye";
 			break;
-		case '1':
-			cout << "Enter the key and data";
+		}
+		case 1:
+		{
+			cout << "Enter the key and data: ";
 			string data = "";
 			int key = 0;
 			cin >> key;
 			cin >> data;
 			insert(p, key, data);
-			break;
-		case 2:
-			break;
-		case 3:
-			break;
-		case 4:
-			break;
-		default:
+			cout << "Added successfully!" << endl;
 			break;
 		}
+		case 2:
+		{
+			cout << "Enter the key: ";
+			int key = 0;
+			cin >> key;
+			remove(p, key);
+			cout << "Removed successfully!" << endl;
+			break;
+		}
+		case 3:
+		{
+			cout << "Enter the key: ";
+			int key = 0;
+			cin >> key;
+			if (check(p, key))
+			{
+				cout << "The node there is" << endl;
+			}
+			else
+			{
+				cout << "The node there is not" << endl;
+			}
+			break;
+		}
+		case 4:
+		{
+			cout << "Enter the key: ";
+			int key = 0;
+			cin >> key;
+			string tmp = writeData(p, key);
+			if (tmp == "") 
+			{
+				cout << "There is not this node! :(" << endl;
+			}
+			else
+			{
+				cout << tmp << endl;
+			}
+			break;
+		}
+		default:
+		{
+			break;
+		}
+		}
+		
 	}
+}
