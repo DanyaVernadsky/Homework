@@ -9,7 +9,7 @@
 		{
 			int key;
 			string data;
-			unsigned char height;
+			char height;
 			node* left;
 			node* right;
 			node(int k, string data)
@@ -20,11 +20,6 @@
 				height = 1;
 			}
 		};
-
-		//tree::node* tree::createNode()
-		//{
-		//	return new node;
-		//}
 
 		unsigned char height(tree::node* p)
 		{

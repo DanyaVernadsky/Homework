@@ -35,7 +35,7 @@ int main()
 			int key = 0;
 			cin >> key;
 			cin >> data;
-			insert(p, key, data);
+			p = insert(p, key, data);
 			cout << "Added successfully!" << endl;
 			break;
 		}
@@ -55,11 +55,11 @@ int main()
 			cin >> key;
 			if (check(p, key))
 			{
-				cout << "The node there is" << endl;
+				cout << "The node there is :)" << endl;
 			}
 			else
 			{
-				cout << "The node there is not" << endl;
+				cout << "The node there is not :(" << endl;
 			}
 			break;
 		}
