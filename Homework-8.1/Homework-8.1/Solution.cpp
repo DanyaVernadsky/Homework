@@ -4,8 +4,42 @@
 
 using namespace tree;
 
+bool testing()
+{
+	node* p = NULL;
+	if (check(p, 3))
+	{
+		return false;
+	}
+	insert(p, 3, "test");
+	if (!check(p, 3))
+	{
+		return false;
+	}
+	if (!("test" == writeData(p, 3)))
+	{
+		return false;
+	}
+	remove(p, 3);
+	if (check(p, 3))
+	{
+		return false;
+	}
+	return true;
+}
+
+
 int main()
 {
+	if (testing)
+	{
+		cout << "Testing is positive" << endl;
+	}
+	else
+	{
+		cout << "Testing is negative" << endl;
+	}
+	cout << "" << endl;
 	cout << "Hello! Choose action" << endl;
 	cout << "0 - work is over" << endl;
 	cout << "1 - insert element in AVL tree" << endl;
@@ -81,8 +115,10 @@ int main()
 		}
 		default:
 		{
+			cout << "Write another number" << endl;
 			break;
 		}
+
 		}
 		
 	}
