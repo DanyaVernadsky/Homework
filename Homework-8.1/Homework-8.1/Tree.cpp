@@ -135,16 +135,16 @@
 				}
 				else //  k == p->key 
 				{
-					tree::node* q = p->left;
-					tree::node* r = p->right;
+					tree::node* leftTree = p->left;
+					tree::node* rightTree = p->right;
 					delete p;
-					if (!r)
+					if (!rightTree)
 					{
-						return q;
+						return leftTree;
 					}
-					tree::node* min = findmin(r);
-					min->right = removemin(r);
-					min->left = q;
+					tree::node* min = findmin(rightTree);
+					min->right = removemin(rightTree);
+					min->left = leftTree;
 					return balance(min);
 				}
 				return balance(p);
